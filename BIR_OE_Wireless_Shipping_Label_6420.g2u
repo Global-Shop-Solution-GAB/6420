@@ -1,0 +1,438 @@
+Program.Sub.ScreenSU.Start
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+Variable.Global.iBIRunID.Declare(Long,-1)
+Variable.Global.iBILogID.Declare(Long,-1)
+Variable.UDT.uWireShip.Define("BIRUNID",Long,"RUNID")
+Variable.UDT.uWireShip.Define("TRANS_ID",String,"TRANS_ID")
+Variable.UDT.uWireShip.Define("SEQ",String,"SEQ")
+Variable.UDT.uWireShip.Define("QTY_ON_LABEL",Float,"QTY_ON_LABEL")
+Variable.UDT.uWireShip.Define("LBL_CREATE_DATE",Date,"LBL_CREATE_DATE")
+Variable.UDT.uWireShip.Define("USER_ID",String,"USER_ID")
+Variable.UDT.uWireShip.Define("WAYBILL_NO",String,"WAYBILL_NO")
+Variable.UDT.uWireShip.Define("PCK_NO",String,"PCK_NO")
+Variable.UDT.uWireShip.Define("SO_NBR",String,"SO_NBR")
+Variable.UDT.uWireShip.Define("SO_LINE",String,"SO_LINE")
+Variable.UDT.uWireShip.Define("SHIP_DATE",Date,"SHIP_DATE")
+Variable.UDT.uWireShip.Define("PROM_DATE",Date,"PROM_DATE")
+Variable.UDT.uWireShip.Define("USER1",String,"USER1")
+Variable.UDT.uWireShip.Define("USER2",String,"USER2")
+Variable.UDT.uWireShip.Define("USER3",String,"USER3")
+Variable.UDT.uWireShip.Define("USER4",String,"USER4")
+Variable.UDT.uWireShip.Define("USER5",String,"USER5")
+Variable.UDT.uWireShip.Define("CUST_NO",String,"CUST_NO")
+Variable.UDT.uWireShip.Define("SHIP_ID",String,"SHIP_ID")
+Variable.UDT.uWireShip.Define("CUST_NAME",String,"CUST_NAME")
+Variable.UDT.uWireShip.Define("CUST_PO",String,"CUST_PO")
+Variable.UDT.uWireShip.Define("SHIP_INTL_ADDRS",String,"SHIP_INTL_ADDRS")
+Variable.UDT.uWireShip.Define("SHIP_NAME",String,"SHIP_NAME")
+Variable.UDT.uWireShip.Define("SHIP_ADDRS1",String,"SHIP_ADDRS1")
+Variable.UDT.uWireShip.Define("SHIP_ADDRS2",String,"SHIP_ADDRS2")
+Variable.UDT.uWireShip.Define("SHIP_ADDRS3",String,"SHIP_ADDRS3")
+Variable.UDT.uWireShip.Define("SHIP_ADDRS4",String,"SHIP_ADDRS4")
+Variable.UDT.uWireShip.Define("SHIP_ADDRS5",String,"SHIP_ADDRS5")
+Variable.UDT.uWireShip.Define("SHIP_CITY",String,"SHIP_CITY")
+Variable.UDT.uWireShip.Define("SHIP_STATE",String,"SHIP_STATE")
+Variable.UDT.uWireShip.Define("SHIP_ZIP",String,"SHIP_ZIP")
+Variable.UDT.uWireShip.Define("SHIP_COUNTRY",String,"SHIP_COUNTRY")
+Variable.UDT.uWireShip.Define("SHIP_ATTN",String,"SHIP_ATTN")
+Variable.UDT.uWireShip.Define("PART",String,"PART")
+Variable.UDT.uWireShip.Define("LOCN",String,"LOCN")
+Variable.UDT.uWireShip.Define("CUST_PART",String,"CUST_PART")
+Variable.UDT.uWireShip.Define("DESCRIPTION",String,"DESCRIPTION")
+Variable.UDT.uWireShip.Define("DESCRIPTION2",String,"DESCRIPTION2")
+Variable.UDT.uWireShip.Define("DESCRIPTION3",String,"DESCRIPTION3")
+Variable.UDT.uWireShip.Define("L_USER1",String,"L_USER1")
+Variable.UDT.uWireShip.Define("L_USER2",String,"L_USER2")
+Variable.UDT.uWireShip.Define("L_USER3",String,"L_USER3")
+Variable.UDT.uWireShip.Define("L_USER4",String,"L_USER4")
+Variable.UDT.uWireShip.Define("L_USER5",String,"L_USER5")
+Variable.UDT.uWireShip.Define("DISCOUNT_PRICE",Float,"DISCOUNT_PRICE")
+Variable.UDT.uWireShip.Define("SHIPPED_QTY",Float,"SHIPPED_QTY")
+Variable.UDT.uWireShip.Define("UNPACKED_WEIGHT",Float,"UNPACKED_WEIGHT")
+Variable.UDT.uWireShip.Define("HM_FLAG",String,"HM_FLAG")
+Variable.UDT.uWireShip.Define("PLLT_NO",String,"PLLT_NO")
+Variable.UDT.uWireShip.Define("PLLT_CD",String,"PLLT_CD")
+Variable.UDT.uWireShip.Define("PLLT_TRACK_NO",String,"PLLT_TRACK_NO")
+Variable.UDT.uWireShip.Define("PLLT_USER_DFND",String,"PLLT_USER_DFND")
+Variable.UDT.uWireShip.Define("PLLT_GROSS",Float,"PLLT_GROSS")
+Variable.UDT.uWireShip.Define("CRTN_NO",String,"CRTN_NO")
+Variable.UDT.uWireShip.Define("CRTN_CD",String,"CRTN_CD")
+Variable.UDT.uWireShip.Define("CRTN_TRACK_NO",String,"CRTN_TRACK_NO")
+Variable.UDT.uWireShip.Define("CRTN_USER_DFND",String,"CRTN_USER_DFND")
+Variable.UDT.uWireShip.Define("CRTN_GROSS",Float,"CRTN_GROSS")
+Variable.UDT.uWireShip.Define("LOT",String,"LOT")
+Variable.UDT.uWireShip.Define("BIN",String,"BIN")
+Variable.UDT.uWireShip.Define("HEAT",String,"HEAT")
+Variable.UDT.uWireShip.Define("SERIAL",String,"SERIAL")
+Variable.UDT.uWireShip.Define("MIXPART0",String)
+Variable.UDT.uWireShip.Define("MIXPART1",String)
+Variable.UDT.uWireShip.Define("MIXPART2",String)
+Variable.UDT.uWireShip.Define("MIXPART3",String)
+Variable.UDT.uWireShip.Define("MIXPART4",String)
+Variable.UDT.uWireShip.Define("MIXPART5",String)
+Variable.UDT.uWireShip.Define("MIXPART6",String)
+Variable.UDT.uWireShip.Define("MIXPART7",String)
+Variable.UDT.uWireShip.Define("MIXPART8",String)
+Variable.UDT.uWireShip.Define("MIXPART9",String)
+Variable.UDT.uWireShip.Define("MIXPART10",String)
+Variable.UDT.uWireShip.Define("MIXPART11",String)
+Variable.UDT.uWireShip.Define("MIXPART12",String)
+Variable.UDT.uWireShip.Define("MIXPART13",String)
+Variable.UDT.uWireShip.Define("MIXPART14",String)
+Variable.UDT.uWireShip.Define("MIXPART15",String)
+Variable.UDT.uWireShip.Define("MIXPART16",String)
+Variable.UDT.uWireShip.Define("MIXPART17",String)
+Variable.UDT.uWireShip.Define("MIXPART18",String)
+Variable.UDT.uWireShip.Define("MIXPART19",String)
+Variable.UDT.uWireShip.Define("MIXPART20",String)
+Variable.UDT.uWireShip.Define("MIXPART21",String)
+Variable.UDT.uWireShip.Define("MIXPART22",String)
+Variable.UDT.uWireShip.Define("MIXPART23",String)
+Variable.UDT.uWireShip.Define("MIXPART24",String)
+Variable.UDT.uWireShip.Define("MIXPART25",String)
+Variable.UDT.uWireShip.Define("MIXPART26",String)
+Variable.UDT.uWireShip.Define("MIXPART27",String)
+Variable.UDT.uWireShip.Define("MIXPART28",String)
+Variable.UDT.uWireShip.Define("MIXPART29",String)
+Variable.UDT.uWireShip.Define("MIXPART30",String)
+Variable.UDT.uWireShip.Define("MIXPART31",String)
+Variable.UDT.uWireShip.Define("MIXPART32",String)
+Variable.UDT.uWireShip.Define("MIXPART33",String)
+Variable.UDT.uWireShip.Define("MIXPART34",String)
+Variable.UDT.uWireShip.Define("MIXPART35",String)
+Variable.UDT.uWireShip.Define("MIXPART36",String)
+Variable.UDT.uWireShip.Define("MIXPART37",String)
+Variable.UDT.uWireShip.Define("MIXPART38",String)
+Variable.UDT.uWireShip.Define("MIXPART39",String)
+Variable.UDT.uWireShip.Define("MIXPARTQTY0",String)
+Variable.UDT.uWireShip.Define("MIXPARTQTY1",String)
+Variable.UDT.uWireShip.Define("MIXPARTQTY2",String)
+Variable.UDT.uWireShip.Define("MIXPARTQTY3",String)
+Variable.UDT.uWireShip.Define("MIXPARTQTY4",String)
+Variable.UDT.uWireShip.Define("MIXPARTQTY5",String)
+Variable.UDT.uWireShip.Define("MIXPARTQTY6",String)
+Variable.UDT.uWireShip.Define("MIXPARTQTY7",String)
+Variable.UDT.uWireShip.Define("MIXPARTQTY8",String)
+Variable.UDT.uWireShip.Define("MIXPARTQTY9",String)
+Variable.UDT.uWireShip.Define("MIXPARTQTY10",String)
+Variable.UDT.uWireShip.Define("MIXPARTQTY11",String)
+Variable.UDT.uWireShip.Define("MIXPARTQTY12",String)
+Variable.UDT.uWireShip.Define("MIXPARTQTY13",String)
+Variable.UDT.uWireShip.Define("MIXPARTQTY14",String)
+Variable.UDT.uWireShip.Define("MIXPARTQTY15",String)
+Variable.UDT.uWireShip.Define("MIXPARTQTY16",String)
+Variable.UDT.uWireShip.Define("MIXPARTQTY17",String)
+Variable.UDT.uWireShip.Define("MIXPARTQTY18",String)
+Variable.UDT.uWireShip.Define("MIXPARTQTY19",String)
+Variable.UDT.uWireShip.Define("MIXPARTQTY20",String)
+Variable.UDT.uWireShip.Define("MIXPARTQTY21",String)
+Variable.UDT.uWireShip.Define("MIXPARTQTY22",String)
+Variable.UDT.uWireShip.Define("MIXPARTQTY23",String)
+Variable.UDT.uWireShip.Define("MIXPARTQTY24",String)
+Variable.UDT.uWireShip.Define("MIXPARTQTY25",String)
+Variable.UDT.uWireShip.Define("MIXPARTQTY26",String)
+Variable.UDT.uWireShip.Define("MIXPARTQTY27",String)
+Variable.UDT.uWireShip.Define("MIXPARTQTY28",String)
+Variable.UDT.uWireShip.Define("MIXPARTQTY29",String)
+Variable.UDT.uWireShip.Define("MIXPARTQTY30",String)
+Variable.UDT.uWireShip.Define("MIXPARTQTY31",String)
+Variable.UDT.uWireShip.Define("MIXPARTQTY32",String)
+Variable.UDT.uWireShip.Define("MIXPARTQTY33",String)
+Variable.UDT.uWireShip.Define("MIXPARTQTY34",String)
+Variable.UDT.uWireShip.Define("MIXPARTQTY35",String)
+Variable.UDT.uWireShip.Define("MIXPARTQTY36",String)
+Variable.UDT.uWireShip.Define("MIXPARTQTY37",String)
+Variable.UDT.uWireShip.Define("MIXPARTQTY38",String)
+Variable.UDT.uWireShip.Define("MIXPARTQTY39",String)
+Variable.UDT.uWireShip.Define("MIXPARTUOM0",String)
+Variable.UDT.uWireShip.Define("MIXPARTUOM1",String)
+Variable.UDT.uWireShip.Define("MIXPARTUOM2",String)
+Variable.UDT.uWireShip.Define("MIXPARTUOM3",String)
+Variable.UDT.uWireShip.Define("MIXPARTUOM4",String)
+Variable.UDT.uWireShip.Define("MIXPARTUOM5",String)
+Variable.UDT.uWireShip.Define("MIXPARTUOM6",String)
+Variable.UDT.uWireShip.Define("MIXPARTUOM7",String)
+Variable.UDT.uWireShip.Define("MIXPARTUOM8",String)
+Variable.UDT.uWireShip.Define("MIXPARTUOM9",String)
+Variable.UDT.uWireShip.Define("MIXPARTUOM10",String)
+Variable.UDT.uWireShip.Define("MIXPARTUOM11",String)
+Variable.UDT.uWireShip.Define("MIXPARTUOM12",String)
+Variable.UDT.uWireShip.Define("MIXPARTUOM13",String)
+Variable.UDT.uWireShip.Define("MIXPARTUOM14",String)
+Variable.UDT.uWireShip.Define("MIXPARTUOM15",String)
+Variable.UDT.uWireShip.Define("MIXPARTUOM16",String)
+Variable.UDT.uWireShip.Define("MIXPARTUOM17",String)
+Variable.UDT.uWireShip.Define("MIXPARTUOM18",String)
+Variable.UDT.uWireShip.Define("MIXPARTUOM19",String)
+Variable.UDT.uWireShip.Define("MIXPARTUOM20",String)
+Variable.UDT.uWireShip.Define("MIXPARTUOM21",String)
+Variable.UDT.uWireShip.Define("MIXPARTUOM22",String)
+Variable.UDT.uWireShip.Define("MIXPARTUOM23",String)
+Variable.UDT.uWireShip.Define("MIXPARTUOM24",String)
+Variable.UDT.uWireShip.Define("MIXPARTUOM25",String)
+Variable.UDT.uWireShip.Define("MIXPARTUOM26",String)
+Variable.UDT.uWireShip.Define("MIXPARTUOM27",String)
+Variable.UDT.uWireShip.Define("MIXPARTUOM28",String)
+Variable.UDT.uWireShip.Define("MIXPARTUOM29",String)
+Variable.UDT.uWireShip.Define("MIXPARTUOM30",String)
+Variable.UDT.uWireShip.Define("MIXPARTUOM31",String)
+Variable.UDT.uWireShip.Define("MIXPARTUOM32",String)
+Variable.UDT.uWireShip.Define("MIXPARTUOM33",String)
+Variable.UDT.uWireShip.Define("MIXPARTUOM34",String)
+Variable.UDT.uWireShip.Define("MIXPARTUOM35",String)
+Variable.UDT.uWireShip.Define("MIXPARTUOM36",String)
+Variable.UDT.uWireShip.Define("MIXPARTUOM37",String)
+Variable.UDT.uWireShip.Define("MIXPARTUOM38",String)
+Variable.UDT.uWireShip.Define("MIXPARTUOM39",String)
+Variable.UDT.uWireShip.Define("MIXCUSTPART0",String)
+Variable.UDT.uWireShip.Define("MIXCUSTPART1",String)
+Variable.UDT.uWireShip.Define("MIXCUSTPART2",String)
+Variable.UDT.uWireShip.Define("MIXCUSTPART3",String)
+Variable.UDT.uWireShip.Define("MIXCUSTPART4",String)
+Variable.UDT.uWireShip.Define("MIXCUSTPART5",String)
+Variable.UDT.uWireShip.Define("MIXCUSTPART6",String)
+Variable.UDT.uWireShip.Define("MIXCUSTPART7",String)
+Variable.UDT.uWireShip.Define("MIXCUSTPART8",String)
+Variable.UDT.uWireShip.Define("MIXCUSTPART9",String)
+Variable.UDT.uWireShip.Define("MIXCUSTPART10",String)
+Variable.UDT.uWireShip.Define("MIXCUSTPART11",String)
+Variable.UDT.uWireShip.Define("MIXCUSTPART12",String)
+Variable.UDT.uWireShip.Define("MIXCUSTPART13",String)
+Variable.UDT.uWireShip.Define("MIXCUSTPART14",String)
+Variable.UDT.uWireShip.Define("MIXCUSTPART15",String)
+Variable.UDT.uWireShip.Define("MIXCUSTPART16",String)
+Variable.UDT.uWireShip.Define("MIXCUSTPART17",String)
+Variable.UDT.uWireShip.Define("MIXCUSTPART18",String)
+Variable.UDT.uWireShip.Define("MIXCUSTPART19",String)
+Variable.UDT.uWireShip.Define("MIXCUSTPART20",String)
+Variable.UDT.uWireShip.Define("MIXCUSTPART21",String)
+Variable.UDT.uWireShip.Define("MIXCUSTPART22",String)
+Variable.UDT.uWireShip.Define("MIXCUSTPART23",String)
+Variable.UDT.uWireShip.Define("MIXCUSTPART24",String)
+Variable.UDT.uWireShip.Define("MIXCUSTPART25",String)
+Variable.UDT.uWireShip.Define("MIXCUSTPART26",String)
+Variable.UDT.uWireShip.Define("MIXCUSTPART27",String)
+Variable.UDT.uWireShip.Define("MIXCUSTPART28",String)
+Variable.UDT.uWireShip.Define("MIXCUSTPART29",String)
+Variable.UDT.uWireShip.Define("MIXCUSTPART30",String)
+Variable.UDT.uWireShip.Define("MIXCUSTPART31",String)
+Variable.UDT.uWireShip.Define("MIXCUSTPART32",String)
+Variable.UDT.uWireShip.Define("MIXCUSTPART33",String)
+Variable.UDT.uWireShip.Define("MIXCUSTPART34",String)
+Variable.UDT.uWireShip.Define("MIXCUSTPART35",String)
+Variable.UDT.uWireShip.Define("MIXCUSTPART36",String)
+Variable.UDT.uWireShip.Define("MIXCUSTPART37",String)
+Variable.UDT.uWireShip.Define("MIXCUSTPART38",String)
+Variable.UDT.uWireShip.Define("MIXCUSTPART39",String)
+Variable.UDT.uWireShip.Define("MIXPARTDESC0",String)
+Variable.UDT.uWireShip.Define("MIXPARTDESC1",String)
+Variable.UDT.uWireShip.Define("MIXPARTDESC2",String)
+Variable.UDT.uWireShip.Define("MIXPARTDESC3",String)
+Variable.UDT.uWireShip.Define("MIXPARTDESC4",String)
+Variable.UDT.uWireShip.Define("MIXPARTDESC5",String)
+Variable.UDT.uWireShip.Define("MIXPARTDESC6",String)
+Variable.UDT.uWireShip.Define("MIXPARTDESC7",String)
+Variable.UDT.uWireShip.Define("MIXPARTDESC8",String)
+Variable.UDT.uWireShip.Define("MIXPARTDESC9",String)
+Variable.UDT.uWireShip.Define("MIXPARTDESC10",String)
+Variable.UDT.uWireShip.Define("MIXPARTDESC11",String)
+Variable.UDT.uWireShip.Define("MIXPARTDESC12",String)
+Variable.UDT.uWireShip.Define("MIXPARTDESC13",String)
+Variable.UDT.uWireShip.Define("MIXPARTDESC14",String)
+Variable.UDT.uWireShip.Define("MIXPARTDESC15",String)
+Variable.UDT.uWireShip.Define("MIXPARTDESC16",String)
+Variable.UDT.uWireShip.Define("MIXPARTDESC17",String)
+Variable.UDT.uWireShip.Define("MIXPARTDESC18",String)
+Variable.UDT.uWireShip.Define("MIXPARTDESC19",String)
+Variable.UDT.uWireShip.Define("MIXPARTDESC20",String)
+Variable.UDT.uWireShip.Define("MIXPARTDESC21",String)
+Variable.UDT.uWireShip.Define("MIXPARTDESC22",String)
+Variable.UDT.uWireShip.Define("MIXPARTDESC23",String)
+Variable.UDT.uWireShip.Define("MIXPARTDESC24",String)
+Variable.UDT.uWireShip.Define("MIXPARTDESC25",String)
+Variable.UDT.uWireShip.Define("MIXPARTDESC26",String)
+Variable.UDT.uWireShip.Define("MIXPARTDESC27",String)
+Variable.UDT.uWireShip.Define("MIXPARTDESC28",String)
+Variable.UDT.uWireShip.Define("MIXPARTDESC29",String)
+Variable.UDT.uWireShip.Define("MIXPARTDESC30",String)
+Variable.UDT.uWireShip.Define("MIXPARTDESC31",String)
+Variable.UDT.uWireShip.Define("MIXPARTDESC32",String)
+Variable.UDT.uWireShip.Define("MIXPARTDESC33",String)
+Variable.UDT.uWireShip.Define("MIXPARTDESC34",String)
+Variable.UDT.uWireShip.Define("MIXPARTDESC35",String)
+Variable.UDT.uWireShip.Define("MIXPARTDESC36",String)
+Variable.UDT.uWireShip.Define("MIXPARTDESC37",String)
+Variable.UDT.uWireShip.Define("MIXPARTDESC38",String)
+Variable.UDT.uWireShip.Define("MIXPARTDESC39",String)
+Variable.uGlobal.uWireShip.Declare("uWireShip")
+Variable.Global.bSentinel.Declare(Boolean,False)
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.SetErrorHandler("Main_Err")
+F.Intrinsic.Control.ClearErrors
+
+
+V.Local.sError.Declare(String)
+
+F.ODBC.Connection!con.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+F.Intrinsic.Control.CallSub(Loaddata)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Main_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+    Function.Intrinsic.String.Concat("Project: BIR_OE_Wireless_Shipping_Label.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+    F.Intrinsic.UI.Msgbox(V.Local.sError)
+    F.Intrinsic.Control.CallSub(Unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.Main.End
+
+Program.Sub.Unload.Start
+F.Intrinsic.Control.SetErrorHandler("Unload_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+F.ODBC.Connection!con.Close
+F.Intrinsic.Control.End
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Unload_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+    Function.Intrinsic.String.Concat("Project: BIR_OE_Wireless_Shipping_Label.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+    F.Intrinsic.UI.Msgbox(V.Local.sError)
+    F.Intrinsic.Control.End
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.Unload.End
+
+Program.Sub.LoadData.Start
+F.Intrinsic.Control.SetErrorHandler("LoadData_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sSql.Declare(String)
+V.Local.iUB.Declare(Long)
+V.Local.sFieldPart.Declare
+V.Local.sFieldQty.Declare
+V.Local.sFieldUM.Declare
+V.Local.sRetInv.Declare
+V.Local.sTotalContainers.Declare(Long)
+V.Local.i.Declare(Long)
+V.Local.ii.Declare(Long)
+V.Local.iii.Declare(Long)
+V.Local.sRet.Declare(String)
+V.Local.sRetValues.Declare(String)
+
+'Getting run ID passed down
+V.Global.iBIRunID.Set(V.Passed.DATA-GAB-0)
+'Getting log ID passed down
+V.Global.iBILogID.Set(V.Passed.DATA-GAB-1)
+'Getting Sentinel flag passed down
+Variable.Global.bSentinel.Set(Variable.Passed.DATA-GAB-2)
+
+V.uGlobal.uWireShip.Redim(-1,-1)
+
+'Loading data from Y table, as being label being printed from Menu, Selecting all fields as all fields are transferred over from Y table to Z table
+F.Intrinsic.String.Build("Select * From Y_OE_SHIP_WL where RUNID = {0}",V.Global.iBIRunID,V.Local.sSql)
+F.ODBC.Connection!con.OpenLocalRecordsetRO("rst",V.Local.sSql)
+F.Intrinsic.Variable.LoadUDTFromRecordset("con","rst","V.uGlobal.uWireShip",True,0)
+F.ODBC.con!rst.Close
+
+F.Intrinsic.Control.If(V.uGlobal.uWireShip.UBound,>,-1)
+    'Checking to see if sequence being printed is Codesoft label
+    Function.Intrinsic.Control.If(Variable.Global.bSentinel,=,True)
+        'Stopping Logging
+        F.Global.BI.StopLogging(V.Global.iBILogID)
+
+'CYCLE THROUGH Pallets WITH MULTIPLE PARTS
+
+Function.Intrinsic.Control.For(V.Local.i,0,V.uGlobal.uWireShiP.UBound,1)
+	V.Local.sSQL.Set("SELECT COUNT(DISTINCT PART) AS PARTCOUNT,PART, LOCN, SUM(QTY) AS PARTQTY,CUST_PART FROM V_BOL_PACK_DTL where RIGHT(PLLT_NO,8) = '{1}' and pck_no = '{2}' GROUP BY PART, LOCN, ORDER_LINE,CUST_PART ORDER BY ORDER_LINE")
+	Function.Intrinsic.String.Build(V.Local.sSQL,V.uGlobal.uWireShiP(V.Local.i)!WAYBILL_NO,V.uGlobal.uWireShiP(V.Local.i)!PLLT_NO,V.uGlobal.uWireShiP(V.Local.i)!PCK_NO,V.Local.sSQL)
+	Function.ODBC.Connection!Con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+	Function.Intrinsic.String.Split(V.Local.sRet,"#$#",V.Local.sRet)
+	Function.Intrinsic.Control.For(V.Local.ii,0,V.Local.sRet.UBound,1)
+
+		Function.Intrinsic.String.Split(V.Local.sRet(V.Local.ii),"*!*",V.Local.sRetValues)
+'		Function.Intrinsic.Control.If(V.uGlobal.uWireShiP(V.Local.i)!PART.Trim,<>,V.Local.sRetValues(1).Trim)
+			F.Global.Inventory.GetPartInfo(V.Local.sRetValues(1).trim,V.Local.sRetValues(2).trim,V.Local.sRetInv)
+			F.Intrinsic.String.Split(V.Local.sRetInv,"*!*",V.Local.sRetInv)
+			V.uGlobal.uWireShiP(V.Local.i)!MIXPART[V.Local.ii].Set(V.Local.sRetValues(1))
+			V.uGlobal.uWireShiP(V.Local.i)!MIXPARTQTY[V.Local.ii].Set(V.Local.sRetValues(3))
+			V.uGlobal.uWireShiP(V.Local.i)!MIXPARTUOM[V.Local.ii].Set(V.Local.sRetInv(2).trim)
+			V.uGlobal.uWireShiP(V.Local.i)!MIXCUSTPART[V.Local.ii].Set(V.Local.sRetValues(4))
+			V.uGlobal.uWireShiP(V.Local.i)!MIXPARTDESC[V.Local.ii].Set(V.Local.sRetInv(1).trim)
+
+'		Function.Intrinsic.Control.EndIf
+	Function.Intrinsic.Control.Next(V.Local.ii)
+Function.Intrinsic.Control.Next(V.Local.i)
+
+
+        'Printing Codesoft label
+        F.Global.BI.PrintCodesoftLabelFromUDT(V.Global.iBIRunID,V.Global.iBILogID,"uGlobal.uWireShip","","",True)
+    Function.Intrinsic.Control.Else
+        'Setting field refs of UDT for Z table fields that don't match Y table field names
+        F.Intrinsic.Variable.SetUDTFieldReference(V.uGlobal.uWireShip!BIRUNID,"BIRUNID")
+
+        'Opening table and writing data out for Crystal/Bartender
+        F.ODBC.Connection!con.OpenLocalRecordsetRW("rst","Z_OE_SHIP_WL ")
+        F.Intrinsic.Variable.saveudttorecordset("con","rst","v.uglobal.uWireShip")
+        F.ODBC.con!rst.Close
+
+        'Stopping Logging
+        F.Global.BI.StopLogging(V.Global.iBILogID)
+
+        'Printing Crystal Report
+        F.Intrinsic.Control.CallSub(Callbi)
+    Function.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+Function.Intrinsic.Control.CallSub(Unload)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("LoadData_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+    Function.Intrinsic.String.Concat("Project: BIR_OE_Wireless_Shipping_Label.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+    F.Intrinsic.UI.Msgbox(V.Local.sError)
+    F.Intrinsic.Control.CallSub(Unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.LoadData.End
+
+Program.Sub.CallBI.Start
+F.Intrinsic.Control.SetErrorHandler("CallBI_Err")
+F.Intrinsic.Control.ClearErrors
+
+Variable.Local.sError.Declare(String)
+Variable.Local.iRet.Declare(Long)
+
+Function.Global.BI.RunReportPreProcessor(V.Global.iBIRunID,V.Global.iBILogID,"","","",-1,True,"",-1,"",-1,"","",v.Local.iRet)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("CallBI_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+    Function.Intrinsic.String.Concat("Project: BIR_OE_Wireless_Shipping_Label.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+    F.Intrinsic.UI.Msgbox(V.Local.sError)
+    F.Intrinsic.Control.CallSub(Unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.CallBI.End
+
+Program.Sub.Comments.Start
+${$0$}$BIR_PU_PO_
+${$5$}$2.0.0.0$}$2
+${$6$}$bstevens$}$20210722104522639$}$3Pg7+K2MGztoXyjxMVZqWaM5g3GOUsSNnmNx+U9dKiacgVUZb72lD4yAxn+MbnYzPOafkV93OEqKnVRa1bKz6w==
+Program.Sub.Comments.End
+
